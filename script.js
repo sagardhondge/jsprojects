@@ -4,7 +4,7 @@ let start = document.querySelector("#start");
 let message = document.querySelector(".message-container");
 let Winner = document.querySelector("#winner");
 
-let turn = true;
+let turn = true; // true = O, false = X
 
 const winPatterns = [
   [0,1,2],
@@ -31,8 +31,8 @@ boxes.forEach((box) => {
   });
 });
 
-const showWinner = (player) => {
-  Winner.innerText = `🎉 Congratulations! Winner is ${player}`;
+const showWinner = (text) => {
+  Winner.innerText = text;
   message.classList.remove("hide");
   disableBoxes();
 };
@@ -49,6 +49,8 @@ const enableBoxes = () => {
 };
 
 const checkWinner = () => {
+  let isDraw = true; // assume draw initially
+
   for (let pattern of winPatterns) {
     let pos1val = boxes[pattern[0]].innerText;
     let pos2val = boxes[pattern[1]].innerText;
@@ -56,9 +58,22 @@ const checkWinner = () => {
 
     if (pos1val !== "" && pos2val !== "" && pos3val !== "") {
       if (pos1val === pos2val && pos2val === pos3val) {
-        showWinner(pos1val);
+        showWinner(` Congratulations! Winner is ${pos1val}`);
+        return; // stop checking after winner
       }
     }
+  }
+
+  // check if any box is still empty
+  boxes.forEach((box) => {
+    if (box.innerText === "") {
+      isDraw = false;
+    }
+  });
+
+  // If no winner and all boxes filled -> draw
+  if (isDraw) {
+    showWinner("😐 It's a Draw!");
   }
 };
 

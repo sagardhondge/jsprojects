@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIC TAC TOE Game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIC TAC TOE Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
+  <main>
     <h1>TIC TAC TOE Game</h1>
-    <div class="container">
-        <div class="Game">
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-        </div>
+
+    <!-- Winner message modal -->
+    <div class="message-container hide">
+      <div class="message-box">
+        <p id="winner">Winner is ...</p>
+        <button id="start">Start New Game</button>
+      </div>
     </div>
+
+    <!-- Game board -->
+    <div class="container">
+      <div class="Game">
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+      </div>
+    </div>
+
+    <!-- Reset button -->
     <button id="reset">Reset Game</button>
-</main>
-    <script src="script.js"></script>   
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
